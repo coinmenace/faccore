@@ -7,7 +7,6 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "chainparams.h"
-
 #include "random.h"
 #include "util.h"
 #include "utilstrencodings.h"
@@ -136,10 +135,10 @@ public:
         {
             bool fNegative;
             bool fOverflow;
-            arith_uint256 bigNum;
+            uint256 bigNum;
             //printf("Searching for genesis block...\n");
             bigNum.SetCompact(genesis.nBits, &fNegative, &fOverflow);
-            while(UintToArith256(genesis.GetHash()) > bigNum)
+            while(uint256(genesis.GetHash()) > bigNum)
             {
                 ++genesis.nNonce;
                 if (genesis.nNonce == 0)
@@ -227,7 +226,7 @@ public:
         nLastPOWBlockOld = 1100;
 		nLastSeeSawBlock = 1200;
         nMaturity = 15;
-        nMaxMoneyOut = 33284220 * COIN; // 2032 Maximum
+        nMaxMoneyOut = 1000000000 * COIN; // 2032 Maximum
         nRampToBlock = 100;
 
         nEnforceBlockUpgradeMajority = 51;
@@ -240,8 +239,37 @@ public:
         genesis.nBits = bnProofOfWorkLimit.GetCompact();
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x000001a2f1a9a313468d66b81dd2cb199f6f8f5d426198a7c4daa9c3f9498285"));
-        assert(genesis.hashMerkleRoot == uint256("0x77976d6bd593c84063ac3937525bc15e25188d96871b13d4451ffc382999f64f"));
+        if(genesis.GetHash() != uint256S("0x"))
+        {
+            bool fNegative;
+            bool fOverflow;
+            uint256 bigNum;
+            //printf("Searching for genesis block...\n");
+            bigNum.SetCompact(genesis.nBits, &fNegative, &fOverflow);
+            while(uint256(genesis.GetHash()) > bigNum)
+            {
+                ++genesis.nNonce;
+                if (genesis.nNonce == 0)
+                {
+                    //printf("NONCE WRAPPED, incrementing time");
+                    std::cout << std::string("NONCE WRAPPED, incrementing time:\n");
+                    ++genesis.nTime;
+                }
+                if (genesis.nNonce % 10000 == 0)
+                {
+                    //printf("Mainnet: nonce %08u: hash = %s \n", genesis.nNonce, genesis.GetHash().ToString().c_str());
+                }
+            }
+            printf("Testnet block.nBits = %u \n", genesis.nBits);
+            printf("Testnet block.nTime = %u \n", genesis.nTime);
+            printf("Testnet block.nNonce = %u \n", genesis.nNonce);
+            printf("Testnet block.GetHash = %s\n", genesis.GetHash().ToString().c_str());
+            printf("Testnet block.GetHash = %s\n", genesis.GetHash().GetHex().c_str());
+            printf("Testnet block.Merkleroot = %s\n", genesis.hashMerkleRoot.ToString().c_str());
+        }
+        std::cout << std::string("Finished calculating Testnet Genesis Block:\n");
+        //assert(hashGenesisBlock == uint256("0x000001a2f1a9a313468d66b81dd2cb199f6f8f5d426198a7c4daa9c3f9498285"));
+        //assert(genesis.hashMerkleRoot == uint256("0x77976d6bd593c84063ac3937525bc15e25188d96871b13d4451ffc382999f64f"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
