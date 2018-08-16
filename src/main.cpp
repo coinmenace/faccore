@@ -1899,7 +1899,8 @@ int64_t GetSeeSawReward(int64_t blockValue, int64_t nMoneySupply, int64_t mNodeC
 }
 
 int64_t GetSplitReward(int64_t blockValue) {
-    int64_t ret = blockValue / 100 * 65;
+    //int64_t ret = blockValue / 100 * 65;
+    int64_t ret = blockValue ;
     return ret;
 }
 
