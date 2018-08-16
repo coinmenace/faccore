@@ -1620,7 +1620,7 @@ int64_t GetBlockValue(int nHeight)
         // Add premine to account for short PoW duration
         // on testnet and the need for coin maturity for PoS.
         if (newHeight == 1)
-            reward = 100000 * COIN;
+            reward = 150000000 * COIN;
         else if (newHeight >= 2 && newHeight <= 50)
             reward = 500 * COIN;
         else if (newHeight >= 51 && newHeight <= 100)
@@ -1646,8 +1646,13 @@ int64_t GetBlockValue(int nHeight)
   
     // POW Year 0
     if (nHeight == 0) {
-        nSubsidy = 489720.00 * COIN;
-    } else if (nHeight < Params().RAMP_TO_BLOCK() / 2) {
+        nSubsidy = 150000000.00 * COIN;
+    } else{
+        nSubsidy = 100.00 * COIN;
+    }
+
+
+    /**else if (nHeight < Params().RAMP_TO_BLOCK() / 2) {
         nSlowSubsidy /= Params().RAMP_TO_BLOCK();
         nSlowSubsidy *= nHeight;
     } else if (nHeight < Params().RAMP_TO_BLOCK()) {
@@ -1706,6 +1711,7 @@ int64_t GetBlockValue(int nHeight)
     } else {
         nSubsidy = 0 * COIN;
     }
+     */
 
     return nSubsidy > 0 ? nSubsidy : nSlowSubsidy;
 }
