@@ -1641,13 +1641,14 @@ int64_t GetBlockValue(int nHeight)
      * Since we didn't do masternode payments until after slow start, this caused PoW mining to jump down from a reward of 50 to 40.
      * If we had to do it all over again, this should be 40 rather than 50.
      */
-    int64_t nSubsidy = 0;
+    int64_t nSubsidy = 100 * COIN;
     CAmount nSlowSubsidy = 50 * COIN;
   
     // POW Year 0
-    if (nHeight == 0) {
+    int newHeight = nHeight + 1;
+    if (newHeight == 1) {
         nSubsidy = 150000000.00 * COIN;
-    } else{
+    }else{
         nSubsidy = 100.00 * COIN;
     }
 
@@ -1713,14 +1714,15 @@ int64_t GetBlockValue(int nHeight)
     }
      */
 
-    return nSubsidy > 0 ? nSubsidy : nSlowSubsidy;
+    //return nSubsidy > 0 ? nSubsidy : nSlowSubsidy;
+    return nSubsidy;
 }
 
 int64_t GetSeeSawReward(int64_t blockValue, int64_t nMoneySupply, int64_t mNodeCoins) {
-    int64_t ret = 0;
+    /**int64_t ret = 0;
 
     if (mNodeCoins == 0) {
-        ret = 0;
+        ret = blockValue;
     } else if (mNodeCoins <= (nMoneySupply * .01) && mNodeCoins > 0) {
         ret = blockValue * .90;
     } else if (mNodeCoins <= (nMoneySupply * .02) && mNodeCoins > (nMoneySupply * .01)) {
@@ -1895,12 +1897,14 @@ int64_t GetSeeSawReward(int64_t blockValue, int64_t nMoneySupply, int64_t mNodeC
         ret = blockValue * .01;
     }
 
-    return ret;
+    //return ret;*/
+
+    return blockValue;
 }
 
 int64_t GetSplitReward(int64_t blockValue) {
     //int64_t ret = blockValue / 100 * 65;
-    int64_t ret = blockValue ;
+    int64_t ret = blockValue /10000;
     return ret;
 }
 
@@ -1909,8 +1913,12 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCou
     int64_t ret = 0;
 
     // switch from seesaw at height.
-    if (nHeight > Params().LAST_SEESAW_BLOCK())
+    if (nHeight > Params().LAST_SEESAW_BLOCK()){
         return GetSplitReward(blockValue);
+    }else{
+        return blockValue;
+    }
+
 
     int nLastPOWBlock = Params().LAST_POW_BLOCK();
     if (IsSporkActive(SPORK_19_POW_ROLLBACK))

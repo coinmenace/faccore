@@ -335,6 +335,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
 
         if (!fProofOfStake) {
             //Masternode and general budget payments
+            LogPrintf("Handling miner payment\n");
             FillBlockPayee(txNew, nFees, fProofOfStake);
 
             //Make payee
