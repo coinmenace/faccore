@@ -97,7 +97,8 @@ public:
 
     uint256 GetHash()
     {
-        uint256 n = Nist5(BEGIN(nSporkID), END(nTimeSigned));
+        //uint256 n = Nist5(BEGIN(nSporkID), END(nTimeSigned));
+        uint256 n = XEVAN(BEGIN(nSporkID), END(nTimeSigned));
         return n;
     }
 

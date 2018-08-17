@@ -99,9 +99,9 @@ public:
         bnProofOfWorkLimit = ~uint256(0) >> 20; // Fac starting difficulty is 1 / 2^12
         nMaxReorganizationDepth = 100;
         nMinerThreads = 0;
-        nTargetTimespan = 1 * 90; // Fac: 1.5 minutes
+        nTargetTimespan = 1 * 60; // Fac: 1.5 minutes
         nTargetSpacingSlowLaunch = 5 * 90;  // Fac: 7.5 minutes (Slow launch - Block 300)
-	    nTargetSpacing = 1 * 90; // Fac: 1.5min after block 300
+	    nTargetSpacing = 1 * 60; // Fac: 1.5min after block 300
         nLastPOWBlock = 500000;
         nLastPOWBlockOld = 0; // 1 year
 		nLastSeeSawBlock = 0; // last block for seesaw rewards
