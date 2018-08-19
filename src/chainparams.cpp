@@ -104,8 +104,8 @@ public:
 	    nTargetSpacing = 1 * 60; // Fac: 1.5min after block 300
         //nLastPOWBlock = 550000;
         //nLastPOWBlockOld = 550000; // 1 year
-        nLastPOWBlock = 100;
-        nLastPOWBlockOld = 100; // 1 year
+        nLastPOWBlock = 500;
+        nLastPOWBlockOld = 500; // 1 year
 		nLastSeeSawBlock = 0; // last block for seesaw rewards
 	    nRampToBlock = 960; // Slow start, ramp linearly to this block
         nMaturity = 66; // 99 Minutes
