@@ -1641,15 +1641,15 @@ int64_t GetBlockValue(int nHeight)
      * Since we didn't do masternode payments until after slow start, this caused PoW mining to jump down from a reward of 50 to 40.
      * If we had to do it all over again, this should be 40 rather than 50.
      */
-    int64_t nSubsidy = 100 * COIN;
-    CAmount nSlowSubsidy = 50 * COIN;
+    int64_t nSubsidy = 500 * COIN;
+    //CAmount nSlowSubsidy = 50 * COIN;
   
     // POW Year 0
     int newHeight = nHeight + 1;
     if (newHeight == 1) {
         nSubsidy = 150000000.00 * COIN;
     }else{
-        nSubsidy = 1000.00 * COIN;
+        nSubsidy = 500.00 * COIN;
     }
 
 
@@ -1904,7 +1904,7 @@ int64_t GetSeeSawReward(int64_t blockValue, int64_t nMoneySupply, int64_t mNodeC
 
 int64_t GetSplitReward(int64_t blockValue) {
     //int64_t ret = blockValue / 100 * 65;
-    int64_t ret = blockValue /10000;
+    int64_t ret = blockValue / 2;
     return ret;
 }
 
