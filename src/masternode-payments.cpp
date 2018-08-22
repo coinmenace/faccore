@@ -266,11 +266,15 @@ void FillBlockPayee(CMutableTransaction& txNew, CAmount nFees, bool fProofOfStak
     CBlockIndex* pindexPrev = chainActive.Tip();
     if (!pindexPrev) return;
 
-    /** */
+    CMasternode* winningNode = mnodeman.GetCurrentMasterNode(1);
     if (IsSporkActive(SPORK_13_ENABLE_SUPERBLOCKS) && budget.IsBudgetPaymentBlock(pindexPrev->nHeight + 1)) {
         budget.FillBlockPayee(txNew, nFees, fProofOfStake);
-    } else {
+    } else if (winningNode) {
         masternodePayments.FillBlockPayee(txNew, nFees, fProofOfStake);
+
+    }
+    else {
+        budget.FillBlockPayee(txNew, nFees, fProofOfStake);
     }
 
     //budget.FillBlockPayee(txNew, nFees, fProofOfStake);

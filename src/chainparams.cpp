@@ -128,12 +128,12 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1534851000;
+        genesis.nTime = 1534906800;
         genesis.nBits = bnProofOfWorkLimit.GetCompact();;
-        genesis.nNonce = 1173335;
+        genesis.nNonce = 1649921;
 
 	    hashGenesisBlock = genesis.GetHash();
-        /***/if(genesis.GetHash() != uint256S("0x"))
+        /**if(genesis.GetHash() != uint256S("0x"))
         {
             bool fNegative;
             bool fOverflow;
@@ -162,8 +162,8 @@ public:
             printf("Mainnet block.Merkleroot = %s\n", genesis.hashMerkleRoot.ToString().c_str());
         }
         std::cout << std::string("Finished calculating Testnet Genesis Block:\n");
-
-       assert(hashGenesisBlock == uint256("0x00000d22d818dd33d6d4e12f9c489a94874e98b60c901c9ab44b2d1a6f5f806c"));
+        */
+       assert(hashGenesisBlock == uint256("0x00000214a4432e479c909342a69606d8493996f77d6e87a20dec7415499b85ec"));
 	   assert(genesis.hashMerkleRoot == uint256("0x77c47b0e69b3033758c72063adf02c83fd4e752be878bfc0e3e1291938aa0753"));
 
         vSeeds.push_back(CDNSSeedData("seed1", "seed1.factrading.com"));      // Single node address
@@ -237,12 +237,12 @@ public:
         nToCheckBlockUpgradeMajority = 100;
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1534851300;
-        genesis.nNonce = 1334562;
+        genesis.nTime = 1534907000;
+        genesis.nNonce = 2019517;
         genesis.nBits = bnProofOfWorkLimit.GetCompact();
 
         hashGenesisBlock = genesis.GetHash();
-        /***/if(genesis.GetHash() != uint256S("0x"))
+        /**if(genesis.GetHash() != uint256S("0x"))
         {
             bool fNegative;
             bool fOverflow;
@@ -271,8 +271,8 @@ public:
             printf("Testnet block.Merkleroot = %s\n", genesis.hashMerkleRoot.ToString().c_str());
         }
         std::cout << std::string("Finished calculating Testnet Genesis Block:\n");
-
-        assert(hashGenesisBlock == uint256("0x0000091c96505ca186b9e136a183d06fc9d4fa32ea850b0bbef71e8c00efd195"));
+*/
+        assert(hashGenesisBlock == uint256("0x000008f986f2c38d8900fe21df6a50ad59aa1759e207638aa346c2860c50d363"));
         assert(genesis.hashMerkleRoot == uint256("0x77c47b0e69b3033758c72063adf02c83fd4e752be878bfc0e3e1291938aa0753"));
 
         vFixedSeeds.clear();
@@ -328,12 +328,12 @@ public:
         nTargetTimespan = 24 * 60 * 60; // Fac: 1 day
         nTargetSpacing = 1 * 60;        // Fac: 1 minutes
         bnProofOfWorkLimit = ~uint256(0) >> 1;
-        genesis.nTime = 1534851900;
+        genesis.nTime = 1534907200;
         genesis.nBits = 0x207fffff;
         genesis.nNonce = 12347;
         hashGenesisBlock = genesis.GetHash();
         nDefaultPort = 8435;
-        /***/if(genesis.GetHash() != uint256S("0x"))
+        /**if(genesis.GetHash() != uint256S("0x"))
         {
             bool fNegative;
             bool fOverflow;
@@ -361,8 +361,8 @@ public:
             printf("Testnet block.GetHash = %s\n", genesis.GetHash().GetHex().c_str());
             printf("Testnet block.Merkleroot = %s\n", genesis.hashMerkleRoot.ToString().c_str());
         }
-        std::cout << std::string("Finished calculating Testnet Genesis Block:\n");
-        assert(hashGenesisBlock == uint256("0x56250b3bddd0bd725a71d476e98dc49550929b93ba975d3cc08f5a88bbf5de1e"));
+        std::cout << std::string("Finished calculating Testnet Genesis Block:\n");*/
+        assert(hashGenesisBlock == uint256("0x3906533c4eafb39966bd54f639c4e4a3b37580abff4279fb16a9ece6e22eb86a"));
         vFixedSeeds.clear(); //! Testnet mode doesn't have any fixed seeds.
         vSeeds.clear();      //! Testnet mode doesn't have any DNS seeds.
         fRequireRPCPassword = false;
@@ -389,7 +389,7 @@ public:
     {
         networkID = CBaseChainParams::UNITTEST;
         strNetworkID = "unittest";
-        nDefaultPort = 51478;
+        nDefaultPort = 8436;
         vFixedSeeds.clear(); //! Unit test mode doesn't have any fixed seeds.
         vSeeds.clear();      //! Unit test mode doesn't have any DNS seeds.
         fRequireRPCPassword = false;

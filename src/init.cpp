@@ -1339,6 +1339,7 @@ bool AppInit2(boost::thread_group& threadGroup)
         bool fFirstRun = true;
         pwalletMain = new CWallet(strWalletFile);
         DBErrors nLoadWalletRet = pwalletMain->LoadWallet(fFirstRun);
+        LogPrintf("WalletVersion %d",pwalletMain->GetVersion());
         if (nLoadWalletRet != DB_LOAD_OK) {
             if (nLoadWalletRet == DB_CORRUPT)
                 strErrors << _("Error loading wallet.dat: Wallet corrupted") << "\n";
@@ -1365,8 +1366,10 @@ bool AppInit2(boost::thread_group& threadGroup)
                 pwalletMain->SetMinVersion(FEATURE_LATEST); // permanently upgrade the wallet immediately
             } else
                 LogPrintf("Allowing wallet upgrade up to %i\n", nMaxVersion);
-            if (nMaxVersion < pwalletMain->GetVersion())
+            if (nMaxVersion < pwalletMain->GetVersion()){
+
                 strErrors << _("Cannot downgrade wallet") << "\n";
+                }
             pwalletMain->SetMaxVersion(nMaxVersion);
         }
 
