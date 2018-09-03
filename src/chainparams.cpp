@@ -95,7 +95,7 @@
                 pchMessageStart[2] = 0xd3;
                 pchMessageStart[3] = 0xb7;
                 vAlertPubKey = ParseHex("04dae329f5f9eab038997bc692fbfecd7ed1c7ee98e3a452644678559016c01ff8d248cea0fdde595ef41829a669cf6ffc7cbf6f1ad97879974f094f628b093f9a");
-                nDefaultPort = 8433;
+                nDefaultPort = 8444;
                 bnProofOfWorkLimit = ~uint256(0) >> 20; // Fac starting difficulty is 1 / 2^12
                 nMaxReorganizationDepth = 100;
                 nMinerThreads = 0;
@@ -126,12 +126,12 @@
                 genesis.hashPrevBlock = 0;
                 genesis.hashMerkleRoot = genesis.BuildMerkleTree();
                 genesis.nVersion = 1;
-                genesis.nTime = 1535972400;
+                genesis.nTime = 1535988000;
                 genesis.nBits = bnProofOfWorkLimit.GetCompact();;
                 genesis.nNonce = 4762661;
 
                 hashGenesisBlock = genesis.GetHash();
-                /**
+
                 if(genesis.GetHash() != uint256S("0x"))
                 {
                     bool fNegative;
@@ -161,10 +161,10 @@
                     printf("Mainnet block.Merkleroot = %s\n", genesis.hashMerkleRoot.ToString().c_str());
                 }
                 std::cout << std::string("Finished calculating Testnet Genesis Block:\n");
-
+/**
 */
-                assert(hashGenesisBlock == uint256("0x00000367d632ceaf80768ed2b17331965eef4035e67669faa9e4309c96d34a72"));
-                assert(genesis.hashMerkleRoot == uint256("0x5cf36143a682f332b5306531385062dcc7612e72c727c3ac91e0d3459e55efd0"));
+                //assert(hashGenesisBlock == uint256("0x00000367d632ceaf80768ed2b17331965eef4035e67669faa9e4309c96d34a72"));
+                //assert(genesis.hashMerkleRoot == uint256("0x5cf36143a682f332b5306531385062dcc7612e72c727c3ac91e0d3459e55efd0"));
 
                 vSeeds.push_back(CDNSSeedData("seed1", "seed1.factrading.com"));      // Single node address
                 vSeeds.push_back(CDNSSeedData("seed2", "seed2.factrading.com"));      // Single node address
@@ -222,7 +222,7 @@
                 pchMessageStart[3] = 0xab;
 
                 vAlertPubKey = ParseHex("042bef19f6e9506c64d116e10e70bf75a1e833e4a6501c218c5575d2aa927ef83c812b95b6689fbc01797f78e4c008cd05332a9beadcbbcc3d5a77314fc4ad3660");
-                nDefaultPort = 8434;
+                nDefaultPort = 8445;
                 nMinerThreads = 0;
                 nTargetTimespan = 1 * 30; // 30 Seconds
                 nTargetSpacing = 1 * 30;  // 30 Seconds
@@ -240,12 +240,12 @@
                 nToCheckBlockUpgradeMajority = 100;
 
                 //! Modify the testnet genesis block so the timestamp is valid for a later start.
-                genesis.nTime = 1535973400;
+                genesis.nTime = 1535988088;
                 genesis.nNonce = 3208602;
                 genesis.nBits = bnProofOfWorkLimit.GetCompact();
 
                 hashGenesisBlock = genesis.GetHash();
-                /**
+
                 if(genesis.GetHash() != uint256S("0x"))
                 {
                     bool fNegative;
@@ -274,10 +274,10 @@
                     printf("Testnet block.GetHash = %s\n", genesis.GetHash().GetHex().c_str());
                     printf("Testnet block.Merkleroot = %s\n", genesis.hashMerkleRoot.ToString().c_str());
                 }
-                std::cout << std::string("Finished calculating Testnet Genesis Block:\n");*/
+                std::cout << std::string("Finished calculating Testnet Genesis Block:\n");/***/
 
-                assert(hashGenesisBlock == uint256("0x00000d623779f1e6300859e5e2deb2d2678bd4e9af2a063cd5ac492c961f0dde"));
-                assert(genesis.hashMerkleRoot == uint256("0x5cf36143a682f332b5306531385062dcc7612e72c727c3ac91e0d3459e55efd0"));
+                //assert(hashGenesisBlock == uint256("0x00000d623779f1e6300859e5e2deb2d2678bd4e9af2a063cd5ac492c961f0dde"));
+                //assert(genesis.hashMerkleRoot == uint256("0x5cf36143a682f332b5306531385062dcc7612e72c727c3ac91e0d3459e55efd0"));
 
                 vFixedSeeds.clear();
                 vSeeds.clear();
@@ -332,12 +332,12 @@
                 nTargetTimespan = 24 * 60 * 60; // Fac: 1 day
                 nTargetSpacing = 1 * 60;        // Fac: 1 minutes
                 bnProofOfWorkLimit = ~uint256(0) >> 1;
-                genesis.nTime = 1535974400;
+                genesis.nTime = 1535988988;
                 genesis.nBits = 0x207fffff;
                 genesis.nNonce = 12347;
                 hashGenesisBlock = genesis.GetHash();
-                nDefaultPort = 8435;
-                /**
+                nDefaultPort = 8446;
+
                 if(genesis.GetHash() != uint256S("0x"))
                 {
                     bool fNegative;
@@ -366,9 +366,9 @@
                     printf("Testnet block.GetHash = %s\n", genesis.GetHash().GetHex().c_str());
                     printf("Testnet block.Merkleroot = %s\n", genesis.hashMerkleRoot.ToString().c_str());
                 }
-                std::cout << std::string("Finished calculating Testnet Genesis Block:\n"); */
+                std::cout << std::string("Finished calculating Testnet Genesis Block:\n"); /***/
 
-                assert(hashGenesisBlock == uint256("0x54a52feeba81626f2cbab209059ffbb2fdc48488f64a5877ed3190723be75c9c"));
+                //assert(hashGenesisBlock == uint256("0x54a52feeba81626f2cbab209059ffbb2fdc48488f64a5877ed3190723be75c9c"));
                 vFixedSeeds.clear(); //! Testnet mode doesn't have any fixed seeds.
                 vSeeds.clear();      //! Testnet mode doesn't have any DNS seeds.
                 fRequireRPCPassword = false;
@@ -395,7 +395,7 @@ public:
     {
         networkID = CBaseChainParams::UNITTEST;
         strNetworkID = "unittest";
-        nDefaultPort = 8436;
+        nDefaultPort = 8438;
         vFixedSeeds.clear(); //! Unit test mode doesn't have any fixed seeds.
         vSeeds.clear();      //! Unit test mode doesn't have any DNS seeds.
         fRequireRPCPassword = false;
