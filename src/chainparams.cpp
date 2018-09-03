@@ -126,7 +126,7 @@
                 genesis.hashPrevBlock = 0;
                 genesis.hashMerkleRoot = genesis.BuildMerkleTree();
                 genesis.nVersion = 1;
-                genesis.nTime = 1535968800;
+                genesis.nTime = 1535972400;
                 genesis.nBits = bnProofOfWorkLimit.GetCompact();;
                 genesis.nNonce = 4629701;
 
@@ -240,7 +240,7 @@
                 nToCheckBlockUpgradeMajority = 100;
 
                 //! Modify the testnet genesis block so the timestamp is valid for a later start.
-                genesis.nTime = 1535969000;
+                genesis.nTime = 1535973400;
                 genesis.nNonce = 2555163;
                 genesis.nBits = bnProofOfWorkLimit.GetCompact();
 
@@ -332,7 +332,7 @@
                 nTargetTimespan = 24 * 60 * 60; // Fac: 1 day
                 nTargetSpacing = 1 * 60;        // Fac: 1 minutes
                 bnProofOfWorkLimit = ~uint256(0) >> 1;
-                genesis.nTime = 1535969800;
+                genesis.nTime = 1535974400;
                 genesis.nBits = 0x207fffff;
                 genesis.nNonce = 12347;
                 hashGenesisBlock = genesis.GetHash();
