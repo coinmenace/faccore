@@ -128,10 +128,10 @@
                 genesis.nVersion = 1;
                 genesis.nTime = 1535972400;
                 genesis.nBits = bnProofOfWorkLimit.GetCompact();;
-                genesis.nNonce = 4629701;
+                genesis.nNonce = 4762661;
 
                 hashGenesisBlock = genesis.GetHash();
-                /***/
+                /**
                 if(genesis.GetHash() != uint256S("0x"))
                 {
                     bool fNegative;
@@ -162,9 +162,9 @@
                 }
                 std::cout << std::string("Finished calculating Testnet Genesis Block:\n");
 
-
-                //assert(hashGenesisBlock == uint256("0x000003fea1b6d9cb0e4267479d97eab7a80031803bf9d42298f3581da13edd0b"));
-                //assert(genesis.hashMerkleRoot == uint256("0x77c47b0e69b3033758c72063adf02c83fd4e752be878bfc0e3e1291938aa0753"));
+*/
+                assert(hashGenesisBlock == uint256("0x00000367d632ceaf80768ed2b17331965eef4035e67669faa9e4309c96d34a72"));
+                assert(genesis.hashMerkleRoot == uint256("0x5cf36143a682f332b5306531385062dcc7612e72c727c3ac91e0d3459e55efd0"));
 
                 vSeeds.push_back(CDNSSeedData("seed1", "seed1.factrading.com"));      // Single node address
                 vSeeds.push_back(CDNSSeedData("seed2", "seed2.factrading.com"));      // Single node address
@@ -241,11 +241,11 @@
 
                 //! Modify the testnet genesis block so the timestamp is valid for a later start.
                 genesis.nTime = 1535973400;
-                genesis.nNonce = 2555163;
+                genesis.nNonce = 3208602;
                 genesis.nBits = bnProofOfWorkLimit.GetCompact();
 
                 hashGenesisBlock = genesis.GetHash();
-                /***/
+                /**
                 if(genesis.GetHash() != uint256S("0x"))
                 {
                     bool fNegative;
@@ -274,10 +274,10 @@
                     printf("Testnet block.GetHash = %s\n", genesis.GetHash().GetHex().c_str());
                     printf("Testnet block.Merkleroot = %s\n", genesis.hashMerkleRoot.ToString().c_str());
                 }
-                std::cout << std::string("Finished calculating Testnet Genesis Block:\n");
+                std::cout << std::string("Finished calculating Testnet Genesis Block:\n");*/
 
-                //assert(hashGenesisBlock == uint256("0x000009e01bfc09d316bc12ea9e81d5ec57b74d7fb36f97981739f61fa763926e"));
-                //assert(genesis.hashMerkleRoot == uint256("0x77c47b0e69b3033758c72063adf02c83fd4e752be878bfc0e3e1291938aa0753"));
+                assert(hashGenesisBlock == uint256("0x00000d623779f1e6300859e5e2deb2d2678bd4e9af2a063cd5ac492c961f0dde"));
+                assert(genesis.hashMerkleRoot == uint256("0x5cf36143a682f332b5306531385062dcc7612e72c727c3ac91e0d3459e55efd0"));
 
                 vFixedSeeds.clear();
                 vSeeds.clear();
@@ -337,7 +337,7 @@
                 genesis.nNonce = 12347;
                 hashGenesisBlock = genesis.GetHash();
                 nDefaultPort = 8435;
-                /** */
+                /**
                 if(genesis.GetHash() != uint256S("0x"))
                 {
                     bool fNegative;
@@ -366,9 +366,9 @@
                     printf("Testnet block.GetHash = %s\n", genesis.GetHash().GetHex().c_str());
                     printf("Testnet block.Merkleroot = %s\n", genesis.hashMerkleRoot.ToString().c_str());
                 }
-                std::cout << std::string("Finished calculating Testnet Genesis Block:\n");
+                std::cout << std::string("Finished calculating Testnet Genesis Block:\n"); */
 
-                //assert(hashGenesisBlock == uint256("0x433d7062fd717e5f38e9d8865fe09b9fb885e0b29d6c2adb708f55427d500af8"));
+                assert(hashGenesisBlock == uint256("0x54a52feeba81626f2cbab209059ffbb2fdc48488f64a5877ed3190723be75c9c"));
                 vFixedSeeds.clear(); //! Testnet mode doesn't have any fixed seeds.
                 vSeeds.clear();      //! Testnet mode doesn't have any DNS seeds.
                 fRequireRPCPassword = false;
