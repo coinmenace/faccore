@@ -15,7 +15,7 @@ Fac offers both SwiftTX and Obfuscation to enable speedy transactions with a See
 | Ticker                | FAC                                     |
 | Algorithm             | XEVAN                                   |
 | RPC Port              | 8555                                   |
-| P2P Port              | 8432                                   |
+| P2P Port              | 8444                                   |
 | Block Spacing         | 90 Seconds                              |
 | Difficulty Algorithm  | Dark Gravity Wave v3.0                  |
 | Block Size            | 1MB                                     |
